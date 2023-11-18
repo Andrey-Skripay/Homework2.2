@@ -41,6 +41,7 @@ public class Main {
         Ravenclaw ravenclaw = new Ravenclaw(0, 0, 0, 0, 0, 0);
         ravenclaw.compareRavenclawStudents(cho, padma);
 
+
         // Сравнение учеников Слизерина
         Slytherin slytherin = new Slytherin(0, 0, 0, 0, 0, 0, 0);
         slytherin.compareSlytherinStudents(draco, graham);
