@@ -2,29 +2,41 @@ package schoolOfMagic;
 
 public class Gryffindor extends Hogwarts {
     // Свойства, присущие Гриффиндорцам
-    private int nobility;
-    private int honor;
-    private int bravery;
+    private final int nobility;
+    private final int honor;
+    private final int bravery;
 
     // Конструктор для задания свойств Гриффиндорцев
-    public Gryffindor(int magicPower, int transgressionDistance, int nobility, int honor, int bravery) {
-        super(magicPower, transgressionDistance);
+    public Gryffindor(String name, int skillMagic, int transgressionDistance, int nobility,
+                      int honor, int bravery) {
+        super(name, skillMagic, transgressionDistance);
         this.nobility = nobility;
         this.honor = honor;
         this.bravery = bravery;
     }
 
-    // Метод сравнения двух учеников Гриффиндора
-    public void compareGryffindorStudents(Gryffindor student1, Gryffindor student2) {
-        int sum1 = student1.nobility + student1.honor + student1.bravery;
-        int sum2 = student2.nobility + student2.honor + student2.bravery;
 
-        if (sum1 > sum2) {
-            System.out.println("Первый ученик лучше второго");
-        } else if (sum1 < sum2) {
-            System.out.println("Второй ученик лучше первого");
-        } else {
-            System.out.println("Ученики равны");
-        }
+    @Override
+    public String toString() {
+        return  super.toString() + ", Благодарен на" + nobility +
+                " обладает честью " + honor +
+                "и храбростью" + bravery;
     }
+
+    // Метод сравнения студентов факультета Гриффиндора
+    public void compareGryffindorStudents(Gryffindor student) {
+
+        if ( (this.getNobility() + this.getBravery() + this.getHonor() > student.getNobility() +
+                student.getBravery() + student.getHonor())) {
+            System.out.println("Гриффендорец" + this.getName() + "сильнее чем" + student.getName());
+        } else if (this.getNobility() < student.getNobility()) {
+            System.out.println("Гриффендорец" + student.getName() + "сильнее чем" + this.getName());
+        } else {
+            System.out.println("Гриффендорец" + this.getName() + "и" + student.getName() + "одинакого равны");
+        }
+    }public int getNobility() {return nobility; }
+
+    public int getHonor() {return  honor; }
+
+    public int getBravery() {return bravery; }
 }

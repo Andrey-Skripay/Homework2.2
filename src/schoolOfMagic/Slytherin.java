@@ -6,29 +6,59 @@ public class Slytherin extends Hogwarts {
     private int determination;
     private int ambition;
     private int resourcefulness;
-    private int thirstForPower;
+    private int lustForPower;
 
-    // Конструктор для задания свойств Слизеринов
-    public Slytherin(int magicPower, int transgressionDistance, int cunning, int determination, int ambition, int resourcefulness, int thirstForPower) {
-        super(magicPower, transgressionDistance);
+    public Slytherin(String name, int skillMagic, int transgressionDistance, int cunning, int determination, int ambition, int resourcefulness, int lustForPower) {
+        super(name, skillMagic, transgressionDistance);
         this.cunning = cunning;
         this.determination = determination;
         this.ambition = ambition;
         this.resourcefulness = resourcefulness;
-        this.thirstForPower = thirstForPower;
+        this.lustForPower = lustForPower;
     }
 
-    // Метод сравнения двух учеников Слизерина
-    public void compareSlytherinStudents(Slytherin student1, Slytherin student2) {
-        int sum1 = student1.cunning + student1.determination + student1.ambition + student1.resourcefulness + student1.thirstForPower;
-        int sum2 = student2.cunning + student2.determination + student2.ambition + student2.resourcefulness + student2.thirstForPower;
+    @Override
+    public String toString() {
+        return super.toString() + " обладает [bnhjcnm." + cunning +
+                "решительностью" + determination +
+                "амбициозностьб" + ambition +
+                "находчивостью" + resourcefulness +
+                "и жаждой власти" + lustForPower;
+    }
 
-        if (sum1 > sum2) {
-            System.out.println("Первый ученик лучше второго");
-        } else if (sum1 < sum2) {
-            System.out.println("Второй ученик лучше первого");
+    // Метод сравнения студентов факультета Слизерина
+    public void compareSlytherinStudents(Slytherin student) {
+        if (this.getCunning() + this.getAmbition() + this.getDetermination() + this.getLustForPower() +
+                getResourcefulness() >
+                student.getCunning() + student.getAmbition() + student.getDetermination() + student.getLustForPower() +
+                        student.getResourcefulness()) {
+            System.out.println("Слизеренец " + this.getName() + " сильнее чем " + student.getName());
+        } else if (this.getCunning() < student.getCunning()) {
+            System.out.println("Слизеренец " + student.getName() + " сильнее чем " + this.getName());
         } else {
-            System.out.println("Ученики равны");
+            System.out.println("Слизеренец " + this.getName() + "и " + student.getName() + " одинакого равны");
         }
     }
+
+    public int getCunning() {
+        return cunning;
+    }
+
+    public int getDetermination() {
+        return determination;
+    }
+
+    public int getAmbition() {
+        return ambition;
+    }
+
+    public int getResourcefulness() {
+        return resourcefulness;
+    }
+
+    public int getLustForPower() {
+        return lustForPower;
+    }
 }
+
+
